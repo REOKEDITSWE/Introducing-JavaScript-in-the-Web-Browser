@@ -1,0 +1,53 @@
+// Accessing the DOM
+console.log(document);
+
+// Getting a reference to the div element
+const myMessage = document.querySelector('.myMessage');
+console.log(myMessage);
+
+// Showing a value in the DOM
+myMessage.innerText = 'This is a message in the DOM!';
+
+// Showing a message after a delay
+setTimeout(function() {
+    myMessage.innerText = 'This is a message in the DOM after 3 seconds!';
+}, 3000);
+
+// Show a message when a button is clicked
+const theMessageButton = document.querySelector('.theMessageButton');
+theMessageButton.addEventListener('click', function() {
+    myMessage.innerText = 'Button pressed';
+});
+
+// Clear the message when another button is clicked
+const clearMessageButton = document.querySelector('.clearMessageButton');
+clearMessageButton.addEventListener('click', function() {
+    myMessage.innerText = '';
+});
+
+// Enter and show a value
+const inputBox = document.querySelector('.theInputValue');
+theMessageButton.addEventListener('click', function() {
+    if (inputBox.value.trim().length > 0) {
+       myMessage.innerText = inputBox.value;
+    }
+});
+
+// Adding web page styling with JavaScript
+myMessage.addEventListener('click', function() {
+    myMessage.classList.toggle('darkmode');
+});
+
+// Create a new DOM element and show a list of fruits
+const fruits = ['Apples', 'Pears', 'Oranges', 'Grapes', 'Bananas'];
+const fruitList = document.querySelector(".fruits");
+
+for (let i = 0; i < fruits.length; i++) {
+    // Get fruit from the list
+    const fruit = fruits[i];
+    
+    // Create a new li element
+    const li = document.createElement('li');
+    li.innerText = fruit;
+    fruitList.appendChild(li);
+}
